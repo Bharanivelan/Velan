@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Header Clone</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: "Segoe UI", Arial, sans-serif;
+      color: #333333;
+    }
+
+    header {
+      border-bottom: 1px solid #e6e6e6;
+      background-color: #ffffff;
+    }
+
+    .header-inner {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 8px 24px 10px;
+    }
+
+    /* TOP ROW: logo + contact */
+    .header-top {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .logo-area {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .logo-area img {
+      height: 70px;
+      width: auto;
+      display: block;
+    }
+
+    .logo-text {
+      font-size: 11px;
+      line-height: 1.1;
+    }
+
+    .logo-text .brand {
+      font-size: 26px;
+      font-weight: 600;
+      margin-bottom: 4px;
+    }
+
+    .contact-area {
+      display: flex;
+      align-items: center;
+      gap: 24px;
+      font-size: 15px;
+    }
+
+    .contact-item {
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      white-space: nowrap;
+    }
+
+    .contact-icon {
+      font-size: 18px;
+      color: #f5b733;
+      display: inline-flex;
+    }
+
+    /* BOTTOM NAV BAR */
+    .header-bottom {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin-top: 12px;
+      padding-bottom: 4px;
+    }
+
+    nav {
+      flex: 1;
+      display: flex;
+      justify-content: center;
+    }
+
+    .nav-list {
+      list-style: none;
+      display: flex;
+      gap: 40px;
+      font-size: 18px;
+    }
+
+    .nav-list li a {
+      text-decoration: none;
+      color: #333;
+      font-weight: 400;
+      padding-bottom: 3px;
+      border-bottom: 3px solid transparent;
+      transition: 0.3s ease;
+    }
+
+    .nav-list li a:hover {
+      border-bottom: 3px solid yellow;
+    }
+
+    .shop-btn {
+  display: inline-flex;
+  padding: 9px 28px;
+  border-radius: 50px;
+  background-color: goldenrod;
+  color: #ffffff;
+  text-decoration: none;
+  font-size: 18px;
+  font-weight: 500;
+  white-space: nowrap;
+  border: 3px solid transparent;
+  transition: 0.3s ease;
+}
+
+.shop-btn:hover {
+  background-color: #ffffff;
+  color: #f5b733;
+  border: 3px solid #f5b733;
+  cursor: pointer;
+}
+
+
+    /* Responsive */
+    @media (max-width: 768px) {
+      .header-top {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 8px;
+      }
+
+      .header-bottom {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 10px;
+      }
+
+      nav {
+        justify-content: flex-start;
+      }
+
+      .nav-list {
+        flex-wrap: wrap;
+        gap: 16px 24px;
+      }
+
+      .shop-btn {
+        align-self: flex-end;
+      }
+    }
+  </style>
+</head>
+<body>
+
+<header>
+  <div class="header-inner">
+
+    <!-- TOP ROW -->
+    <div class="header-top">
+      <div class="logo-area">
+        <img src="logo.png" alt="Logo">
+      </div>
+
+      <div class="contact-area">
+        <div class="contact-item">
+          <span class="contact-icon">✉</span>
+          <span>marketing@theanilgroup.com</span>
+        </div>
+        <div class="contact-item">
+          <span class="contact-icon">☎</span>
+          <span>0451 – 2431969</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- BOTTOM ROW -->
+    <div class="header-bottom">
+      <nav>
+        <ul class="nav-list">
+          <li><a href="#">Our Company</a></li>
+          <li><a href="#">Products</a></li>
+          <li><a href="#">Business Opportunities</a></li>
+          <li><a href="#">Media</a></li>
+          <li><a href="#">Careers</a></li>
+          <li><a href="#">Blog</a></li>
+          <li><a href="#">Offers</a></li>
+        </ul>
+      </nav>
+
+      <a href="#" class="shop-btn">Shop Now</a>
+    </div>
+
+  </div>
+</header>
+
+<script>
+  // JS placeholder (optional for mobile functionality later)
+</script>
+
+</body>
+</html>
