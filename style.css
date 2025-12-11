@@ -278,6 +278,8 @@ html {
 
     .product-slider-main .owl-carousel .item {
         height: 400px;
+        background-size: contain;
+        background-repeat: no-repeat;
     }
 
     .product-slider-main .owl-nav button {
@@ -298,7 +300,9 @@ html {
 
 @media (max-width: 480px) {
     .product-slider-main .owl-carousel .item {
-        height: 300px;
+        height: 230px;
+        background-size: contain;
+        background-repeat: no-repeat;
     }
 }
 
