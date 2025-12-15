@@ -155,6 +155,12 @@ html {
     border-bottom: 2px solid #f5b733;
 }
 
+.nav-list li a.active {
+    color: #D4AF37;
+    border-bottom: 2px solid #D4AF37;
+    font-weight: 700;
+}
+
 /* Mobile Responsive Header */
 @media (max-width: 992px) {
     .header-top {

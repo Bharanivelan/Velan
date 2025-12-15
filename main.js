@@ -17,6 +17,60 @@ document.addEventListener('DOMContentLoaded', () => {
         document.body.style.overflow = 'auto';
     }
 
+    // --- NEW: Active Link Highlighting (Home Page Scroll Spy) ---
+    const navLinks = document.querySelectorAll('.nav-list li a');
+    const sections = document.querySelectorAll('section');
+
+    function highlightNavLink() {
+        let current = '';
+        const scrollY = window.scrollY;
+
+        // Check sections for Home Page
+        if (window.location.pathname.endsWith('index.html') || window.location.pathname === '/' || window.location.pathname.endsWith('/')) {
+            sections.forEach(section => {
+                const sectionTop = section.offsetTop;
+                // Adjustment for header height
+                if (scrollY >= (sectionTop - 150)) {
+                    current = section.getAttribute('id');
+                }
+            });
+
+            // Home fallback
+            if (scrollY < 100) {
+                current = 'home';
+            }
+
+            navLinks.forEach(link => {
+                link.classList.remove('active');
+                // Strict check for hash links on home page
+                if (link.getAttribute('href').includes('#' + current)) {
+                    link.classList.add('active');
+                }
+            });
+        }
+    }
+
+    // Run on scroll
+    window.addEventListener('scroll', highlightNavLink);
+    // Initial check
+    highlightNavLink();
+
+    // Highlights 'Products' or 'Contact' based on current page url (non-scroll spy)
+    function highlightPageLink() {
+        const path = window.location.pathname;
+        navLinks.forEach(link => {
+            const href = link.getAttribute('href');
+            // If we are on a separate page (e.g. products.html), highlight that specific link
+            // Avoid flagging 'index.html#products' when we are actually on 'products.html' unless intended.
+            // Simplified: If current path ends with the href (e.g. products.html), highlight it.
+            if (href && href !== '#' && !href.startsWith('#') && path.endsWith(href)) {
+                link.classList.add('active');
+            }
+        });
+    }
+    highlightPageLink();
+    // -----------------------------------------------------------
+
     if (menuBtn) {
         menuBtn.addEventListener('click', openMobileMenu);
     }

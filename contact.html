@@ -214,6 +214,12 @@
             border-bottom: 2px solid #f5b733;
         }
 
+        .nav-list li a.active {
+            color: #D4AF37;
+            border-bottom: 2px solid #D4AF37;
+            font-weight: 700;
+        }
+
         /* Mobile Responsive Header */
         @media (max-width: 992px) {
             .header-top {
@@ -1117,6 +1123,17 @@
             const menuClose = document.getElementById('menuClose');
             const mobileMenu = document.getElementById('mobileMenu');
             const menuOverlay = document.getElementById('menuOverlay');
+
+            // --- Active Link Highlighting for Contact Page ---
+            const navLinks = document.querySelectorAll('.nav-list li a');
+            // Highlight 'Contact Us'
+            navLinks.forEach(link => {
+                const href = link.getAttribute('href');
+                if (href && href.includes('contact.html')) {
+                    link.classList.add('active');
+                }
+            });
+            // --------------------------------------------------
 
             // Check if elements exist
             if (!menuToggle || !menuClose || !mobileMenu || !menuOverlay) {
