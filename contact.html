@@ -73,6 +73,21 @@
             text-align: center;
         }
 
+        /* Hide scrollbar for all browsers */
+        html,
+        body {
+            scrollbar-width: none;
+            /* Firefox */
+            -ms-overflow-style: none;
+            /* IE and Edge */
+        }
+
+        html::-webkit-scrollbar,
+        body::-webkit-scrollbar {
+            display: none;
+            /* Chrome, Safari, Opera */
+        }
+
         .container {
             max-width: 1170px;
             margin: 0 auto;
@@ -1096,60 +1111,60 @@
         // Mobile Menu Functionality
         document.addEventListener('DOMContentLoaded', function () {
             console.log('🚀 Velan Foods Contact Page Loaded');
-            
+
             // Get DOM elements
             const menuToggle = document.getElementById('menuToggle');
             const menuClose = document.getElementById('menuClose');
             const mobileMenu = document.getElementById('mobileMenu');
             const menuOverlay = document.getElementById('menuOverlay');
-            
+
             // Check if elements exist
             if (!menuToggle || !menuClose || !mobileMenu || !menuOverlay) {
                 console.error('❌ Mobile menu elements not found');
                 return;
             }
-            
+
             console.log('✅ Mobile menu elements found');
-            
+
             // Function to open mobile menu
             function openMobileMenu() {
                 console.log('📱 Opening mobile menu');
                 mobileMenu.classList.add('mobile-menu-open');
                 menuOverlay.classList.add('active');
                 document.body.style.overflow = 'hidden';
-                
+
                 // Add event listener to close menu when clicking overlay
                 menuOverlay.addEventListener('click', closeMobileMenu);
             }
-            
+
             // Function to close mobile menu
             function closeMobileMenu() {
                 console.log('📱 Closing mobile menu');
                 mobileMenu.classList.remove('mobile-menu-open');
                 menuOverlay.classList.remove('active');
                 document.body.style.overflow = '';
-                
+
                 // Remove event listener
                 menuOverlay.removeEventListener('click', closeMobileMenu);
             }
-            
+
             // Add event listeners
             menuToggle.addEventListener('click', openMobileMenu);
             menuClose.addEventListener('click', closeMobileMenu);
-            
+
             // Close menu when clicking on menu links
             const menuLinks = mobileMenu.querySelectorAll('a');
             menuLinks.forEach(link => {
                 link.addEventListener('click', closeMobileMenu);
             });
-            
+
             // Close menu with Escape key
             document.addEventListener('keydown', function (event) {
                 if (event.key === 'Escape' && mobileMenu.classList.contains('mobile-menu-open')) {
                     closeMobileMenu();
                 }
             });
-            
+
             // ===========================================
             // CONTACT FORM FUNCTIONALITY
             // ===========================================
