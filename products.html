@@ -680,6 +680,42 @@
             font-style: italic;
         }
 
+        /* Scroll to Top Button */
+        #scrollTopBtn {
+            display: none;
+            /* Hidden by default */
+            position: fixed;
+            bottom: 20px;
+            right: 30px;
+            z-index: 999;
+            /* Make sure it does not overlap */
+            outline: none;
+            background-color: #ffffff;
+            /* White background */
+            color: #D4AF37;
+            /* Brand Gold Icon */
+            border: 2px solid #D4AF37;
+            /* Brand Gold Border */
+            cursor: pointer;
+            padding: 10px 16px;
+            /* Adjusted padding for border */
+            border-radius: 50%;
+            /* Rounded */
+            font-size: 18px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+            transition: all 0.3s ease;
+        }
+
+        #scrollTopBtn:hover {
+            background-color: #D4AF37;
+            /* Gold background */
+            color: #ffffff;
+            /* White icon */
+            transform: translateY(-3px);
+            /* Subtle lift effect */
+            box-shadow: 0 6px 15px rgba(212, 175, 55, 0.4);
+        }
+
         /* Responsive Styles */
         @media (max-width: 768px) {
             .main-content {
@@ -1219,6 +1255,28 @@
             // Initialize with all products visible
             productCount.textContent = productCards.length;
         });
+    </script>
+    <!-- Scroll to Top Button -->
+    <button onclick="scrollToTop()" id="scrollTopBtn" title="Go to top"><i class="fa fa-arrow-up"></i></button>
+
+    <script>
+        // Scroll to Top Logic for Internal Pages
+        const scrollTopBtn = document.getElementById("scrollTopBtn");
+
+        window.addEventListener('scroll', function () {
+            if (document.body.scrollTop > 200 || document.documentElement.scrollTop > 200) {
+                scrollTopBtn.style.display = "block";
+            } else {
+                scrollTopBtn.style.display = "none";
+            }
+        });
+
+        function scrollToTop() {
+            window.scrollTo({
+                top: 0,
+                behavior: 'smooth'
+            });
+        }
     </script>
 </body>
 
