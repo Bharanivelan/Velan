@@ -1,3 +1,3 @@
 User-agent: *
 Allow: /
-Sitemap: https://velan.com/sitemap.xml
+Sitemap: https://ashwinfoods.in/sitemap.xml
